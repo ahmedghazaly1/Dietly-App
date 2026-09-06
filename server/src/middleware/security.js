@@ -6,11 +6,15 @@ exports.securityHeaders = helmet({
   crossOriginResourcePolicy: { policy: "cross-origin" },
 });
 
-// CORS configuration
+// CORS configuration (kept for reference; primary CORS is configured in app.js)
 exports.corsOptions = cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:3000',
+  origin: [
+    process.env.CLIENT_URL || "http://localhost:3000",
+    "http://localhost:3001",
+    "http://localhost:3002",
+  ],
   credentials: true,
-  optionsSuccessStatus: 200
+  optionsSuccessStatus: 200,
 });
 
 // Sanitize data to prevent NoSQL injection

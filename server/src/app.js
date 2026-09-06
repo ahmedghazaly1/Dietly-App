@@ -21,16 +21,31 @@ const chatbotRoutes = require("./routes/chatbotRoutes"); // Add this line
 // Security middleware (FIRST)
 app.use(securityHeaders);
 
+const allowedOrigins = [
+  "http://localhost:3000",
+  "http://localhost:3001",
+  "http://localhost:3002",
+  "http://localhost:5000",
+  "https://dietlyapp.vercel.app",
+];
+
 app.use(
   cors({
-    origin: [
-      "http://localhost:5000", // For local development
-      "http://localhost:3000",
-      "http://localhost:3002", // For local development
-      "https://dietlyapp.vercel.app", // ✅ Add your LIVE frontend URL here
-      "https://dietlyapp-*.vercel.app",
-    ],
+    origin(origin, callback) {
+      // Allow non-browser tools (no Origin) and listed / local / Vercel preview URLs
+      if (
+        !origin ||
+        allowedOrigins.includes(origin) ||
+        /^http:\/\/localhost:\d+$/.test(origin) ||
+        /^https:\/\/dietlyapp(-[a-z0-9-]+)?\.vercel\.app$/.test(origin)
+      ) {
+        return callback(null, true);
+      }
+      return callback(new Error(`Not allowed by CORS: ${origin}`));
+    },
     credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
