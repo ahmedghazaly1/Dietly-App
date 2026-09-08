@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext"; // Add this import
 import api from "../services/api";
+import { publicUrl } from "../utils/publicUrl";
 
 // ✅ FIXED IMPORT PATHS
 import { Button } from "../components/ui/button";
@@ -102,7 +103,11 @@ const AdminDashboard = () => {
             {/* Logo */}
             <div className="flex items-center space-x-6">
               <img
-                src={scrolled ? "/logo-white.png" : "/logo-green.png"}
+                src={
+                  scrolled
+                    ? publicUrl("/logo-white.png")
+                    : publicUrl("/logo-green.png")
+                }
                 alt="Logo"
                 className="w-24 h-24 md:w-32 md:h-32 cursor-pointer"
               />
@@ -125,7 +130,7 @@ const AdminDashboard = () => {
                   className="w-10 h-10 rounded-full p-0 flex items-center justify-center overflow-hidden hover:ring-2 hover:ring-[#246608] transition-all"
                 >
                   <img
-                    src="/default-profile.svg"
+                    src={publicUrl("/default-profile.svg")}
                     alt="Profile"
                     className="w-full h-full object-cover"
                   />

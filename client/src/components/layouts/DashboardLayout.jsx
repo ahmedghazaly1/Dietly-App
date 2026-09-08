@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { Button } from "../ui/button";
 import { User, Settings, LogOut, MessageCircle, Menu, X } from "lucide-react";
+import { publicUrl } from "../../utils/publicUrl";
 
 const DashboardLayout = ({ children }) => {
   const { user, logout } = useAuth();
@@ -71,7 +72,11 @@ const DashboardLayout = ({ children }) => {
             {/* Logo */}
             <div className="flex items-center space-x-4">
               <img
-                src={scrolled ? "/logo-white.png" : "/logo-green.png"}
+                src={
+                  scrolled
+                    ? publicUrl("/logo-white.png")
+                    : publicUrl("/logo-green.png")
+                }
                 alt="Logo"
                 className="w-20 h-20 md:w-24 md:h-24 cursor-pointer"
                 onClick={() => handleNavigate("/dashboard")}
@@ -158,7 +163,7 @@ const DashboardLayout = ({ children }) => {
                   className="w-10 h-10 rounded-full p-0 flex items-center justify-center overflow-hidden hover:ring-2 hover:ring-[#246608] transition-all"
                 >
                   <img
-                    src="/default-profile.svg"
+                    src={publicUrl("/default-profile.svg")}
                     alt="Profile"
                     className="w-full h-full object-cover"
                   />

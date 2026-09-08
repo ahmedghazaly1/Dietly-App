@@ -26,6 +26,7 @@ import MealPlanView from "./components/meal-plans/MealPlanView";
 import Chatbot from "./pages/Chatbot";
 import LoadingSpinner from "./components/common/LoadingSpinner";
 import DashboardLayout from "./components/layouts/DashboardLayout";
+import { publicUrl } from "./utils/publicUrl";
 
 // Admin pages - ADD THESE IMPORTS
 import DashboardAdmin from "./pages/DashboardAdmin";
@@ -40,6 +41,7 @@ const ProtectedRoute = ({
   userOnly = false,
 }) => {
   const { isAuthenticated, loading, justRegistered, user } = useAuth();
+  const location = useLocation();
 
   if (loading) return <LoadingSpinner />;
 
@@ -54,7 +56,7 @@ const ProtectedRoute = ({
   }
 
   // Only redirect to profile-setup if user just registered AND this is NOT the profile-setup route
-  if (justRegistered && window.location.pathname !== "/profile-setup") {
+  if (justRegistered && !location.pathname.includes("profile-setup")) {
     return <Navigate to="/profile-setup" replace />;
   }
 
@@ -149,7 +151,11 @@ const GuestLayout = ({ children }) => {
               onClick={() => handleNavigate("/dashboard")}
             >
               <img
-                src={scrolled ? "/logo-white.png" : "/logo-green.png"}
+                src={
+                  scrolled
+                    ? publicUrl("/logo-white.png")
+                    : publicUrl("/logo-green.png")
+                }
                 alt="Logo"
                 className="w-20 h-20 md:w-24 md:h-24"
               />
@@ -311,7 +317,7 @@ function App() {
   return (
     <AuthProvider>
       <MealProvider>
-        <Router basename="/Dietly-App">
+        <Router basename={process.env.PUBLIC_URL || "/"}>
           <ScrollToTop />
           <Routes>
             {/* Auth pages */}

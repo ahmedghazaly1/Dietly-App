@@ -5,6 +5,7 @@ import { Button } from "../../components/ui/button";
 import { Input } from "../../components/ui/input";
 import { Label } from "../../components/ui/label";
 import { Alert, AlertDescription } from "../../components/ui/alert";
+import { publicUrl } from "../../utils/publicUrl";
 import {
   AlertCircle,
   Eye,
@@ -53,7 +54,7 @@ const Login = () => {
     <div
       className="min-h-screen flex items-center justify-center p-4 bg-cover bg-center bg-no-repeat relative"
       style={{
-        backgroundImage: "url(/veggies-background.jpg)",
+        backgroundImage: `url(${publicUrl("/veggies-background.jpg")})`,
       }}
     >
       {" "}
@@ -68,7 +69,7 @@ const Login = () => {
         <div className="text-center mb-8">
           <div className="inline-block relative">
             <img
-              src="/logo-green.png"
+              src={publicUrl("/logo-green.png")}
               alt="Dietly Logo"
               className="mx-auto w-40 mb-4"
             />

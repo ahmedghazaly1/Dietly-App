@@ -5,6 +5,7 @@ import { Button } from "../../components/ui/button";
 import { Input } from "../../components/ui/input";
 import { Label } from "../../components/ui/label";
 import { Alert, AlertDescription } from "../../components/ui/alert";
+import { publicUrl } from "../../utils/publicUrl";
 import {
   AlertCircle,
   Eye,
@@ -68,7 +69,7 @@ const Register = () => {
   return (
     <div
       className="min-h-screen flex items-center justify-center p-4 bg-cover bg-center bg-no-repeat relative"
-      style={{ backgroundImage: "url(/veggies-background.jpg)" }}
+      style={{ backgroundImage: `url(${publicUrl("/veggies-background.jpg")})` }}
     >
       {/* Background Blobs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -81,7 +82,7 @@ const Register = () => {
         {/* Logo Section */}
         <div className="text-center mb-8">
           <img
-            src="/logo-green.png"
+            src={publicUrl("/logo-green.png")}
             alt="Dietly Logo"
             className="mx-auto w-40 mb-4"
           />

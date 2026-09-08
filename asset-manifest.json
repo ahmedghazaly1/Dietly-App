@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Dietly-App/static/css/main.b6f5f73c.css",
-    "main.js": "/Dietly-App/static/js/main.28688896.js",
+    "main.js": "/Dietly-App/static/js/main.cbb8f073.js",
     "static/js/453.b1a5a552.chunk.js": "/Dietly-App/static/js/453.b1a5a552.chunk.js",
     "index.html": "/Dietly-App/index.html",
     "main.b6f5f73c.css.map": "/Dietly-App/static/css/main.b6f5f73c.css.map",
-    "main.28688896.js.map": "/Dietly-App/static/js/main.28688896.js.map",
+    "main.cbb8f073.js.map": "/Dietly-App/static/js/main.cbb8f073.js.map",
     "453.b1a5a552.chunk.js.map": "/Dietly-App/static/js/453.b1a5a552.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b6f5f73c.css",
-    "static/js/main.28688896.js"
+    "static/js/main.cbb8f073.js"
   ]
 }

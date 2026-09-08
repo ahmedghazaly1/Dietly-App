@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useAuth } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
+import { publicUrl } from "../utils/publicUrl";
 import { Button } from "../components/ui/button";
 import { Card, CardContent } from "../components/ui/card";
 import {
@@ -209,7 +210,11 @@ const Dashboard = () => {
             {/* Logo */}
             <Link to="/dashboard" className="flex items-center space-x-4">
               <img
-                src={scrolled ? "/logo-white.png" : "/logo-green.png"}
+                src={
+                  scrolled
+                    ? publicUrl("/logo-white.png")
+                    : publicUrl("/logo-green.png")
+                }
                 alt="Logo"
                 className="w-20 h-20 md:w-24 md:h-24 cursor-pointer"
               />
@@ -296,7 +301,7 @@ const Dashboard = () => {
                   className="w-10 h-10 rounded-full p-0 flex items-center justify-center overflow-hidden hover:ring-2 hover:ring-[#246608] transition-all"
                 >
                   <img
-                    src="/default-profile.svg"
+                    src={publicUrl("/default-profile.svg")}
                     alt="Profile"
                     className="w-full h-full object-cover"
                   />

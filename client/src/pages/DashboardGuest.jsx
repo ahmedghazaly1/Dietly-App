@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import FeatureCard from "../components/landing/FeatureCard";
+import { publicUrl } from "../utils/publicUrl";
 import {
   Sparkles,
   TrendingUp,
@@ -134,7 +135,11 @@ const DashboardGuest = () => {
             {/* Logo */}
             <div className="flex items-center space-x-4">
               <img
-                src={scrolled ? "/logo-white.png" : "/logo-green.png"}
+                src={
+                  scrolled
+                    ? publicUrl("/logo-white.png")
+                    : publicUrl("/logo-green.png")
+                }
                 alt="Logo"
                 className="w-20 h-20 md:w-24 md:h-24"
               />
