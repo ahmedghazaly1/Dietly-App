@@ -311,7 +311,7 @@ function App() {
   return (
     <AuthProvider>
       <MealProvider>
-        <Router>
+        <Router basename="/Dietly-App">
           <ScrollToTop />
           <Routes>
             {/* Auth pages */}
