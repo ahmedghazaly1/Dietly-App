@@ -1,7 +1,9 @@
 {
+  
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://ahmedghazaly1.github.io/Dietly-App",
   "dependencies": {
     "@headlessui/react": "^2.2.9",
     "@heroicons/react": "^2.2.0",
