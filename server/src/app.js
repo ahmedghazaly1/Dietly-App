@@ -27,6 +27,7 @@ const allowedOrigins = [
   "http://localhost:3002",
   "http://localhost:5000",
   "https://dietlyapp.vercel.app",
+  "https://ahmedghazaly1.github.io",
 ];
 
 app.use(

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import LoadingSpinner from "../../components/common/LoadingSpinner";
 import { Button } from "../../components/ui/button";
+import { publicUrl } from "../../utils/publicUrl";
 
 const ProfileSetup = () => {
   const { user, updateProfile, finalizeRegistration, loading, clearJustRegistered } = useAuth();
@@ -262,7 +263,7 @@ const ProfileSetup = () => {
           setIsSubmitting(false);
           if (selectedGoal === "maintain") {
             setTimeout(() => {
-              window.location.replace("/user-dashboard");
+              window.location.replace(publicUrl("/user-dashboard"));
             }, 2000);
           } else {
             setCurrentStep(7);
@@ -273,7 +274,7 @@ const ProfileSetup = () => {
             setIsSubmitting(false);
             if (result.success) {
               setTimeout(() => {
-                window.location.replace("/user-dashboard");
+                window.location.replace(publicUrl("/user-dashboard"));
               }, 1000);
             }
           } else {
@@ -331,14 +332,14 @@ const ProfileSetup = () => {
           await updateProfile(payload);
           setIsSubmitting(false);
           setTimeout(() => {
-            window.location.replace("/user-dashboard");
+            window.location.replace(publicUrl("/user-dashboard"));
           }, 2000);
         } else {
           const result = await finalizeRegistration(payload);
           setIsSubmitting(false);
           if (result.success) {
             setTimeout(() => {
-              window.location.replace("/user-dashboard");
+              window.location.replace(publicUrl("/user-dashboard"));
             }, 1000);
           }
         }

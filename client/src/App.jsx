@@ -5,6 +5,7 @@ import {
   Route,
   Navigate,
   useLocation,
+  useNavigate,
 } from "react-router-dom";
 import { AuthProvider, useAuth } from "./context/AuthContext";
 import { MealProvider } from "./context/MealContext";
@@ -119,6 +120,7 @@ const ScrollToTop = () => {
 
 // Guest Layout component with navbar - now mobile-friendly
 const GuestLayout = ({ children }) => {
+  const navigate = useNavigate();
   const [scrolled, setScrolled] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
@@ -129,7 +131,7 @@ const GuestLayout = ({ children }) => {
   }, []);
 
   const handleNavigate = (path) => {
-    window.location.href = path;
+    navigate(path);
     setIsMobileMenuOpen(false);
   };
 

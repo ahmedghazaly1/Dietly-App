@@ -1,6 +1,7 @@
 // src/context/AuthContext.jsx
 import React, { createContext, useState, useEffect, useContext } from "react";
 import { authService } from "../services/authService";
+import { publicUrl } from "../utils/publicUrl";
 
 export const AuthContext = createContext();
 
@@ -199,7 +200,7 @@ export const AuthProvider = ({ children }) => {
       setJustRegistered(false);
       setPendingRegistration(null);
       // Optional: force redirect to guest
-      window.location.href = "/dashboard";
+      window.location.href = publicUrl("/dashboard");
     }
   };
 
